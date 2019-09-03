@@ -17,19 +17,19 @@
     <div class="form-actions no-color">
         <p>
             Find by name:
-            <input type="text" name="NameFilter" value="@Model.NameFilter" />            
+            <input type="text" name="NameSearch" value="@Model.NameFilter" />            
         </p>
         <p>
             Find by email:
-            <input type="text" name="EmailFilter" value="@Model.EmailFilter" />
+            <input type="text" name="EmailSearch" value="@Model.EmailFilter" />
         </p>
         <p>
             Find by zip code:
-            <input type="text" name="ZipFilter" value="@Model.ZipFilter" />
+            <input type="text" name="ZipSearch" value="@Model.ZipFilter" />
         </p>
         <p>
             Find by country:
-            <input type="text" name="CountryFilter" value="@Model.CountryFilter" />
+            <input type="text" name="CountrySearch" value="@Model.CountryFilter" />
         </p>
         <p>
             <input type="submit" value="Search" class="btn btn-default" /> |
@@ -45,12 +45,12 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-rout-firstOrder="@Model.CurrentFirstSort">
+                <a asp-page="./Index" asp-route-firstOrder="@Model.CurrentFirstSort">
                 @Html.DisplayNameFor(model => model.Customer[0].FirstName)
                 </a>                
             </th>
             <th>
-                <a asp-page="./Index" asp-rout-firstOrder="@Model.CurrentLastSort">
+                <a asp-page="./Index" asp-route-lastOrder="@Model.CurrentLastSort">
                 @Html.DisplayNameFor(model => model.Customer[0].LastName)
                 </a>                
             </th>
@@ -58,7 +58,9 @@
                 @Html.DisplayNameFor(model => model.Customer[0].Email)
             </th>
             <th>
+                <a asp-page="./Index" asp-route-dobOrder="@Model.CurrentDOBSort">
                 @Html.DisplayNameFor(model => model.Customer[0].DateOfBirth)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].ZipCode)
@@ -68,6 +70,11 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].SystemRole)
+            </th>            
+            <th>
+                <a asp-page="./Index" asp-route-createdOrder="@Model.CurrentCreateDateSort">
+                @Html.DisplayNameFor(model => model.Customer[0].CreatedDate)
+                </a>
             </th>
             <th></th>
         </tr>
@@ -97,10 +104,14 @@
                 @Html.DisplayFor(modelItem => item.SystemRole)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
+            
         </tr>
 }
     </tbody>
