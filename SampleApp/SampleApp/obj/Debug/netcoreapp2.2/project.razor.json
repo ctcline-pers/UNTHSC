@@ -2976,6 +2976,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Customer\\Edit.cshtml",
+      "TargetPath": "Pages\\Customer\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages\\Customer\\Details.cshtml",
+      "TargetPath": "Pages\\Customer\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -2991,13 +3001,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Customer\\Index.cshtml",
+      "TargetPath": "Pages\\Customer\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Customer\\Create.cshtml",
+      "TargetPath": "Pages\\Customer\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Pages\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages\\Customer\\Delete.cshtml",
+      "TargetPath": "Pages\\Customer\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -38,6 +38,9 @@ namespace SampleApp
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<SampleAppDbContext>(options => 
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("SampleAppConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
