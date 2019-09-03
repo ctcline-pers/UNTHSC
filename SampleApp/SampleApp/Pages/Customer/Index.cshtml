@@ -1,0 +1,123 @@
+@page
+@model SampleApp.Pages_Customer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Add New Customer</a>
+</p>
+<br/>
+<br/>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="NameFilter" value="@Model.NameFilter" />            
+        </p>
+        <p>
+            Find by email:
+            <input type="text" name="EmailFilter" value="@Model.EmailFilter" />
+        </p>
+        <p>
+            Find by zip code:
+            <input type="text" name="ZipFilter" value="@Model.ZipFilter" />
+        </p>
+        <p>
+            Find by country:
+            <input type="text" name="CountryFilter" value="@Model.CountryFilter" />
+        </p>
+        <p>
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-page="./Index" asp-rout-clearSearch=true asp-rout-clearSort=true>Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<p>
+    <a asp-page="./Index" asp-rout-clearSort=true>Clear Sorting</a>  
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-rout-firstOrder="@Model.CurrentFirstSort">
+                @Html.DisplayNameFor(model => model.Customer[0].FirstName)
+                </a>                
+            </th>
+            <th>
+                <a asp-page="./Index" asp-rout-firstOrder="@Model.CurrentLastSort">
+                @Html.DisplayNameFor(model => model.Customer[0].LastName)
+                </a>                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].SystemRole)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemRole)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Customer.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Customer.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Customer.PageIndex - 1)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Customer.PageIndex + 1)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
