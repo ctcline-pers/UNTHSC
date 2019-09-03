@@ -35,3 +35,4 @@ C:\Users\crist\source\repos\UNTHSC\SampleApp\SampleApp\obj\Debug\netcoreapp2.2\R
 C:\Users\crist\source\repos\UNTHSC\SampleApp\SampleApp\obj\Debug\netcoreapp2.2\Razor\Pages\Customer\Details.g.cshtml.cs
 C:\Users\crist\source\repos\UNTHSC\SampleApp\SampleApp\obj\Debug\netcoreapp2.2\Razor\Pages\Customer\Edit.g.cshtml.cs
 C:\Users\crist\source\repos\UNTHSC\SampleApp\SampleApp\obj\Debug\netcoreapp2.2\Razor\Pages\Customer\Index.g.cshtml.cs
+C:\Users\crist\source\repos\UNTHSC\SampleApp\SampleApp\obj\Debug\netcoreapp2.2\Razor\Pages\Index_NotLogged.g.cshtml.cs

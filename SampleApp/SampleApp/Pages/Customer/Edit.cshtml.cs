@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +12,7 @@ using SampleApp.Models;
 
 namespace SampleApp.Pages_Customer
 {
+    [Authorize(Roles="Admin")]
     public class EditModel : PageModel
     {
         private readonly SampleApp.Data.SampleAppDbContext _context;
@@ -23,6 +25,8 @@ namespace SampleApp.Pages_Customer
         [BindProperty]
         public Customer Customer { get; set; }
 
+        public SelectList RolesList{get; set;}
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +34,7 @@ namespace SampleApp.Pages_Customer
                 return NotFound();
             }
 
-            Customer = await _context.Customer.FirstOrDefaultAsync(m => m.Id == id);
+            Customer = await _context.Customer.FromSql($"GetCustomerById {id.Value}").FirstOrDefaultAsync();
 
             if (Customer == null)
             {

@@ -12,5 +12,13 @@ namespace SampleApp.Data
 
         public DbSet<Customer> Customer {get; set;}
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>()
+                .Property(b => b.CreatedDate)
+                .HasDefaultValueSql("getdate()")
+                .Metadata.AfterSaveBehavior = Microsoft.EntityFrameworkCore.Metadata.PropertySaveBehavior.Ignore;
+        }
+
     }
 }

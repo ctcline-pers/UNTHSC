@@ -45,7 +45,8 @@ namespace SampleApp.Models
         [Required]
         public string SystemRole {get; set;}
 
-        [NotMapped]
-        public List<SelectListItem> SystemRoles => ((WindowsBuiltInRole[])Enum.GetValues(typeof(WindowsBuiltInRole))).ToList().Select(c => new SelectListItem() { Value = c.ToString(), Text = c.ToString() }).ToList();
+        [Display(Name="Created Date")]
+        [DataType(DataType.Date)]
+        public DateTime CreatedDate {get; set;}
     }
 }

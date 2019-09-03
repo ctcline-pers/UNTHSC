@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SampleApp.Data;
 
 namespace SampleApp.Migrations
 {
     [DbContext(typeof(SampleAppDbContext))]
-    partial class SampleAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190903061203_AddAttributes")]
+    partial class AddAttributes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,10 +30,6 @@ namespace SampleApp.Migrations
                     b.Property<string>("Country")
                         .IsRequired()
                         .HasMaxLength(256);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("getdate()");
 
                     b.Property<DateTime>("DateOfBirth");
 

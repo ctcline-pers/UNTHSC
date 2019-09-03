@@ -2976,6 +2976,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Pages\\Index_NotLogged.cshtml",
+      "TargetPath": "Pages\\Index_NotLogged.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Pages\\Customer\\Edit.cshtml",
       "TargetPath": "Pages\\Customer\\Edit.cshtml",
       "FileKind": "mvc"

@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Customer.SystemRole" class="control-label"></label>
-                <select asp-for="Customer.SystemRole" asp-items="Model.Customer.SystemRoles"></select>
+                <select asp-for="Customer.SystemRole" asp-items="Model.RolesList"></select>
                 <!-- <input asp-for="Customer.SystemRole" class="form-control" /> -->
                 <span asp-validation-for="Customer.SystemRole" class="text-danger"></span>
             </div>
